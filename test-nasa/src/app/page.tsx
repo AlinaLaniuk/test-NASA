@@ -3,9 +3,9 @@ import Cart from './cart/cart';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <div className={styles.main}>
       Hello
       <Cart />
-    </main>
+    </div>
   )
 };

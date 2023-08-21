@@ -22,5 +22,22 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: 0;
+}
+
+.text{
+  font-family: Inter-Regular;
+  font-size: 1em;
+  color: var(--text-color);
+}
+
+.title{
+  font-family: Inter-Bold;
+  font-size: 1.75em;
+  color: var(--text-color);
+}
+
+.subtitle{
+  font-family: Inter-Regular;
+  font-size: 1.5em;
+  color: var(--text-color);
 }
