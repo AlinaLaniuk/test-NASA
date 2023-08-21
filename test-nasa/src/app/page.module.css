@@ -1,0 +1,11 @@
+.appBackground{
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-background-color);
+}
+
+.planetaImgContainer{
+  height: 70%;
+  position: absolute;
+  top: 10%;
+}
