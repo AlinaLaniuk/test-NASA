@@ -24,6 +24,12 @@
   padding: 0;
 }
 
+button{
+  background: none;
+  border: none;
+  outline: none;
+}
+
 .text{
   font-family: Inter-Regular;
   font-size: 1em;
@@ -40,4 +46,18 @@
   font-family: Inter-Regular;
   font-size: 1.5em;
   color: var(--text-color);
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.textUnderlined{
+  text-decoration: underline;
 }

@@ -5,9 +5,11 @@ export type AsteroidsNearEarthForPeriod = {
     self: string,
   },
   element_count: number,
-  near_earth_objects: {
-    [x: string]: AsteroidInfo[],
-  },
+  near_earth_objects: NearEarthObjects,
+};
+
+export type NearEarthObjects = {
+  [x: string]: AsteroidInfo[],
 };
 
 export type AsteroidInfo = {
@@ -59,3 +61,15 @@ type CloseApproachDate = {
   },
   orbiting_body: string,
 };
+
+export type CardInfo = {
+  date: string;
+  distanceToEarth: {
+    kilometers: number,
+    lunar: number,
+  };
+  size: number;
+  imgSize: number;
+  dangerous: boolean;
+  name: string;
+}
