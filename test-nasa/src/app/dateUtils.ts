@@ -26,7 +26,6 @@ function setDateForCardInfo(date: string) {
 };
 
 export function addToDate(startDate: string, period: number) {
-  const splittedDate = splitDate(startDate);
   const dateObject = new Date(startDate);
   const newDate = new Date(dateObject.setDate(dateObject.getDate() + period));
   return newDate;
