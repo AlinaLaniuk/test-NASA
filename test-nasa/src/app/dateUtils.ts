@@ -1,4 +1,4 @@
-import { AsteroidsNearEarthForPeriod, AsteroidInfo, NearEarthObjects, CardInfo } from './types';
+import { AsteroidInfo, NearEarthObjects, CardInfo } from './types';
 import { estimateAsteroidImageSize } from './sizeEstimate';
 import { monthMap } from './monthMap';
 
@@ -7,12 +7,17 @@ function splitDate(stringDate: string) {
   const year = parts[0];
   const month = parts[1];
   const day = parts[2];
-  console.log(parts)
   return {
     year: year,
     month: month,
     day: day
   }
+};
+
+function sortDates(dates: string[]) {
+  return dates.sort((date1, date2) => {
+    return new Date(date1).getTime() - new Date(date2).getTime();
+  });
 };
 
 function setDateForCardInfo(date: string) {
@@ -37,7 +42,7 @@ export function getYYYYMMDDFormat(dateObject: Date) {
 
 export function getInfoForCards(nearEarthObjects: NearEarthObjects) {
   const asteroidsInfoForPeriod: CardInfo[] = [];
-  Object.keys(nearEarthObjects).forEach((date) => {
+  sortDates(Object.keys(nearEarthObjects)).forEach((date) => {
     nearEarthObjects[date].forEach((asteroidInfo: AsteroidInfo) => {
       const infoForCard: CardInfo = {
         name: asteroidInfo.name,

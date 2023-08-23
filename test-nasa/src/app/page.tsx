@@ -4,7 +4,7 @@ import styles from './page.module.css';
 import Card from '../../components/card/card';
 import { useEffect, useState } from 'react';
 import { AsteroidsNearEarthForPeriod, AsteroidInfo, NearEarthObjects, CardInfo } from './types';
-import { addToDate, getYYYYMMDDFormat, getInfoForCards } from './utils';
+import { addToDate, getYYYYMMDDFormat, getInfoForCards } from './dateUtils';
 
 const api_key = 'tA5QzkWoUrrXmdMbPC7GZfXeWcktO13a7mzgRZXG';
 const defaultPeriod = 7;
