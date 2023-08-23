@@ -2,22 +2,23 @@ import styles from './card.module.css';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-export type Props = {
+type Props = {
   date: string;
   distanceToEarth: number,
   size: number;
   imgSize: number;
   dangerous: boolean;
   name: string;
+  distanceToEarthUnit: string;
 }
 
-export default function Card({ date, distanceToEarth, size, imgSize, dangerous, name }: Props) {
+export default function Card({ date, distanceToEarth, distanceToEarthUnit, size, imgSize, dangerous, name }: Props) {
   return (
     <div className={styles.cardContainer}>
       <div className='subtitle'>{date}</div>
       <div className={classNames(styles.cardMiddle, 'row')}>
         <div className={classNames(styles.distanceBlock, 'column')}>
-          <span className='text'>{distanceToEarth} км</span>
+          <span className='text'>{distanceToEarth} {distanceToEarthUnit}</span>
           <div className={styles.distanceLine}>
             <Image
               src={'/arrow.svg'}

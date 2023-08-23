@@ -62,6 +62,7 @@ type CloseApproachDate = {
   orbiting_body: string,
 };
 
+
 export type CardInfo = {
   date: string;
   distanceToEarth: {
@@ -73,3 +74,5 @@ export type CardInfo = {
   dangerous: boolean;
   name: string;
 }
+
+export type DistanceToEarthKeys = keyof CardInfo['distanceToEarth'];
