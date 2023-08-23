@@ -10,20 +10,41 @@ const api_key = 'tA5QzkWoUrrXmdMbPC7GZfXeWcktO13a7mzgRZXG';
 const defaultPeriod = 7;
 
 export default function Home() {
-  const [asteroidsInfo, updateAsteroidsInfo] = useState<CardInfo[]>();
-  const [currentStartDate, updateCurrentStartDate] = useState('');
-  const [currentEndDate, updateCurrentEndDate] = useState('');
+  const [asteroidsInfo, updateAsteroidsInfo] = useState<CardInfo[]>([]);
+  const [fetching, setFetching] = useState(true);
+  const [currentEndDate, updateCurrentEndDate] = useState(getYYYYMMDDFormat(addToDate(getYYYYMMDDFormat(new Date()), -1)));
 
   async function getAsteroidsInfo(startDate: string, endDate: string) {
     const data = await fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=${api_key}`);
     return data.json();
   }
 
-  useEffect(() => {
-    const startDate = getYYYYMMDDFormat(new Date());
+  function addNewAsteroidInfo() {
+    const startDate = getYYYYMMDDFormat(addToDate(currentEndDate, 1));
     const endDate = getYYYYMMDDFormat(addToDate(startDate, defaultPeriod));
-    getAsteroidsInfo(startDate, endDate).then((data: AsteroidsNearEarthForPeriod) => { updateAsteroidsInfo(getInfoForCards(data.near_earth_objects)) })
-  }, [])
+    updateCurrentEndDate(endDate);
+    getAsteroidsInfo(startDate, endDate).then((data: AsteroidsNearEarthForPeriod) => { updateAsteroidsInfo([...asteroidsInfo, ...getInfoForCards(data.near_earth_objects)]) })
+    setFetching(false);
+  }
+
+  const scrollHandler = () => {
+    if (document.documentElement.scrollHeight - (document.documentElement.scrollTop + window.innerHeight) < 100) {
+      setFetching(true);
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('scroll', scrollHandler);
+    return function () {
+      document.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (fetching) {
+      addNewAsteroidInfo();
+    };
+  }, [fetching])
 
   return (
     <div className={styles.homeContainer}>
@@ -49,6 +70,7 @@ export default function Home() {
           })
         }
       </div>
+      <div className='title'>{fetching ? 'Загрузка...' : ''}</div>
     </div>
   )
 };
