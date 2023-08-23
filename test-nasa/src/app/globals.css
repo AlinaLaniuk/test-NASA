@@ -1,0 +1,63 @@
+@font-face {
+  font-family: Passion-One;
+  src: url('../../public/fonts/PassionOne-Regular.woff2');
+}
+
+@font-face {
+  font-family: Inter-Bold;
+  src: url('../../public/fonts/Inter-Bold.woff2');
+}
+
+@font-face {
+  font-family: Inter-Regular;
+  src: url('../../public/fonts/Inter-Regular.woff2');
+}
+
+:root{
+  --main-background-color: black;
+  --text-color: white;
+  --elements-color: #F86600;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button{
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.text{
+  font-family: Inter-Regular;
+  font-size: 1em;
+  color: var(--text-color);
+}
+
+.title{
+  font-family: Inter-Bold;
+  font-size: 1.75em;
+  color: var(--text-color);
+}
+
+.subtitle{
+  font-family: Inter-Regular;
+  font-size: 1.5em;
+  color: var(--text-color);
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.textUnderlined{
+  text-decoration: underline;
+}

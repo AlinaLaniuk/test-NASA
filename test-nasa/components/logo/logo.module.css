@@ -1,0 +1,12 @@
+.logoText{
+  font-family: Passion-One;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: var(--elements-color);
+}
+
+.logoContainer{
+  width: 27%;
+  padding-top: 10px;
+  padding-left: 10px;
+}

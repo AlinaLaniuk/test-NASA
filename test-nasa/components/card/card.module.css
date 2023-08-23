@@ -1,0 +1,19 @@
+.distanceLine{
+  color: white;
+  width: 100%;
+}
+
+.distanceBlock{
+  width: auto;
+}
+
+.cardButton{
+  width: auto;
+  height: auto;
+  padding: 5px;
+  border-radius: 10px;
+  color: var(--elements-color);
+  text-transform: uppercase;
+  font-size: 0.8em;
+  background-color: rgba(248, 102, 0, 0.2);
+}
